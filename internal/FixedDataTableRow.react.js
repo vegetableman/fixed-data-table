@@ -113,7 +113,12 @@ var FixedDataTableRowImpl = React.createClass({displayName: "FixedDataTableRowIm
         onMouseEnter: this.props.onMouseEnter ? this._onMouseEnter : null, 
         onMouseLeave: this.props.onMouseLeave ? this._onMouseLeave : null, 
         style: style}, 
-        this.props.footerRowRenderer()
+        React.createElement("div", null, 
+          fixedColumns, 
+          scrollableColumns, 
+          columnsShadow, 
+          this.props.footerRowRenderer()
+        )
       )
     }
     else if (!this.props.data) {
